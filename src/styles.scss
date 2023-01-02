@@ -1,5 +1,8 @@
-@import "./colors.scss";
-@import "../styles/mixins.scss";
+// @import "./colors.scss";
+// @import "../styles/mixins.scss";
+@import "../src/assets/styles/mixins.scss";
+@import "../src/assets/styles/colors.scss";
+
 
 .section {
   &.hidden {
