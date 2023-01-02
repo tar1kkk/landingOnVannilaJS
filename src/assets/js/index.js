@@ -181,7 +181,7 @@ const closeModal = () => {
 
 setTexts();
 initSlider();
-startTimer("November 11, 2022 00:00:00");
+startTimer("January 11, 2023 00:00:00");
 window.addEventListener("scroll", handleScroll);
 modalClose.addEventListener("click", closeModal);
 menuButton.addEventListener("click", toggleMenu);
