@@ -1,9 +1,12 @@
 import "swiper/swiper.min.css";
-import "../styles/reset.scss";
-import "../styles/styles.scss";
+// import "../styles/reset.scss";
+// import "../styles/styles.scss";
+
+import "../src/assets/styles/reset.scss";
+import "../src/assets/styles/styles.scss";
 
 import Swiper, { Navigation } from "swiper";
-import { languages } from "./languages";
+import { languages } from "./assets/js/languages";
 Swiper.use([Navigation]);
 
 const checkboxes = {
