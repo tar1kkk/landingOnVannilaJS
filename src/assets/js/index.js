@@ -1,7 +1,8 @@
 import 'swiper/swiper.min.css';
 import '../styles/reset.scss';
 import '../styles/styles.scss';
-import Swiper from 'swiper';
+import Swiper, { Navigation } from 'swiper';
+Swiper.use([Navigation]);
 
 
 const checkboxes = {
@@ -92,12 +93,15 @@ const handleCheckBox = ({ currentTarget: { checked, name } }) => {
 	list.classList.add(active);
 };
 const initSlider = () => {
-	new Swiper('.swiper', {
+	new Swiper(".swiper", {
 		loop: true,
 		slidesPerView: 3,
 		spaceBetween: 20,
 		initialSlide: 2,
-
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
 	});
 }
 
