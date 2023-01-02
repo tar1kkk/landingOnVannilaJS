@@ -3,10 +3,10 @@ import "swiper/swiper.min.css";
 // import "../styles/styles.scss";
 
 import "../src/assets/styles/reset.scss";
-import "../src/assets/styles/styles.scss";
+import "../src/styles.scss";
 
 import Swiper, { Navigation } from "swiper";
-import { languages } from "./assets/js/languages";
+import { languages } from "../src/assets/js/languages.js";
 Swiper.use([Navigation]);
 
 const checkboxes = {
