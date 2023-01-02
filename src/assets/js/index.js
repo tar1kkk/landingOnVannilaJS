@@ -2,6 +2,7 @@ import 'swiper/swiper.min.css';
 import '../styles/reset.scss';
 import '../styles/styles.scss';
 import Swiper, { Navigation } from 'swiper';
+import { languages } from './languages';
 Swiper.use([Navigation]);
 
 
@@ -22,6 +23,8 @@ const menuButton = document.querySelector('.header-menu__button');
 const video = document.getElementById('video');
 const videoButton = document.querySelector('.video-btn');
 const faqItem = document.querySelectorAll('.faq-item');
+const sections = document.querySelectorAll('.section');
+const language = document.querySelectorAll('.language');
 
 const toggleMenu = () => {
 	header.classList.toggle(classes.opened);
@@ -115,10 +118,43 @@ const handleFaqItem = ({ currentTarget: target }) => {
 	content.style.height = `${isOpened ? height : 0}px`;
 };
 
+const handleScroll = () => {
+	const { scrollY, innerHeight } = window;
+	sections.forEach((section) => {
+		if (scrollY > section.offsetTop - innerHeight / 1.5) {
+			section.classList.remove(classes.hidden);
+		}
+	})
+};
+
+const setTexts = () => {
+	const lang = localStorage.getItem('lang') || 'en';
+	const content = languages[lang];
+
+	Object.entries(content).forEach(([key, value]) => {
+		const items = document.querySelectorAll(`[data-text="${key}"]`);
+		items.forEach((item) => {
+			item.innerText = value;
+		})
+	})
+}
+
+const toggleLanguage = ({ target }) => {
+	const { lang } = target.dataset;
+
+	if (!lang) return;
+
+	localStorage.setItem('lang', lang);
+	setTexts();
+}
+
 initSlider();
 startTimer('January 10, 2023 00:00:00');
+setTexts();
+window.addEventListener('scroll', handleScroll);
 menuButton.addEventListener('click', toggleMenu);
 videoButton.addEventListener('click', handleVideo);
 menuLink.forEach((link) => link.addEventListener('click', scrollToSection));
 checkbox.forEach((box) => box.addEventListener('click', handleCheckBox));
 faqItem.forEach((item) => item.addEventListener('click', handleFaqItem));
+language.forEach((lang) => lang.addEventListener('click', toggleLanguage))
