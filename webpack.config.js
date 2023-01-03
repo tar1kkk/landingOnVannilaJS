@@ -26,13 +26,6 @@ module.exports = {
 			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 				type: "asset/resource",
-			},
-			{
-				loader: 'file-loader',
-				options: {
-					publicPath: '../src/assets/images/',
-					name: `assets/image/[name].[ext]`,
-				}
 			}
 		],
 	},
