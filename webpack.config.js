@@ -8,7 +8,7 @@ module.exports = {
 	output: {
 		clean: true,
 		filename: "[name].bundle.js",
-		path: path.resolve(__dirname, "./src"),
+		path: path.resolve(__dirname, "dist"),
 	},
 	mode: "development",
 	devServer: {
